@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>希靈祝福抽獎</title>
+  <style>
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      background: linear-gradient(to right, #ffe0f0, #fceaff);
+      text-align: center;
+      padding: 2em;
+      color: #c84e89;
+    }
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 0.2em;
+    }
+    .subtext {
+      font-size: 1.2em;
+      margin-bottom: 2em;
+    }
+    button {
+      background-color: #ff99c8;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 0.8em 1.6em;
+      font-size: 1.2em;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: all 0.2s ease;
+    }
+    button:hover {
+      background-color: #ff66a3;
+    }
+    #result {
+      margin-top: 2em;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #ff5e9c;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎀 希靈祝福抽獎 🎀</h1>
+  <p class="subtext">點一下按鈕，就會隨機抽出三位幸運觀眾！</p>
+
+  <button onclick="drawWinners()">開始抽獎！</button>
+  <div id="result"></div>
+
+  <script>
+    const names = [
+      "M.K.高翔",
+      "楓玥",
+      "宋星珀",
+      "魚丸◎蕾娜",
+      "尼哭哭",
+      "夜銃"
+    ];
+
+    function drawWinners() {
+      const shuffled = [...names].sort(() => 0.5 - Math.random());
+      const winners = shuffled.slice(0, 3);
+      document.getElementById("result").innerHTML =
+        `✨ 得獎者 ✨<br><br>${winners.join("<br>")}`;
+    }
+  </script>
+</body>
+</html>
